@@ -17,20 +17,9 @@ module.exports = function(env) {
           query: {
             presets: ["env", "react", "minify"]
           }
-        },
-        {
-          test: /\.css$/,
-          use: ["css-loader"]
         }
       ]
     },
-    plugins: [
-      new webpack.DefinePlugin({
-        "process.env.NODE_ENV": JSON.stringify(
-          env.production ? "production" : "development"
-        )
-      })
-    ],
     resolve: {
       extensions: [".js", ".min.js"],
       modules: ["./node_modules", "./src"]
