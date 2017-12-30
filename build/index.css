@@ -1,0 +1,71 @@
+html,
+body {
+  height: 100vh;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Source Sans Pro";
+  background: url("file:///usr/share/backgrounds/rareos/casey-horner.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+
+.UserList {
+  height: 100vh;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  overflow: auto;
+}
+
+.UserList .user {
+  height: 170px;
+  width: 150px;
+  padding: 40px 25px;
+  background: rgba(0, 0, 0, 0.6);
+  margin: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.UserList .user:hover {
+  background: rgba(0, 0, 0, 0.34);
+}
+
+.UserList .user .userImage {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px;
+}
+
+.UserList .userName {
+  font-size: 18px;
+  font-family: "Source Sans Pro SemiBold";
+  text-align: center;
+  color: white;
+}
+
+.BottomButtons {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+}
+
+.BottomButtons .button {
+  text-transform: uppercase;
+  color: white;
+  font-family: "Source Sans Pro SemiBold";
+  font-size: 14px;
+  padding: 20px 30px;
+  cursor: pointer;
+  display: inline-block;
+  transition: background 0.2s;
+}
+
+.BottomButtons .button:hover {
+  background: rgba(255, 255, 255, 0.13);
+}

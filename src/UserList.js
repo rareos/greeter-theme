@@ -7,8 +7,8 @@ class UserList extends Component {
       <div className="UserList">
         {this.props.users.map((user, i) => (
           <div className="user" key={i}>
-            <img src={user.image} />
-            {user.display_name}
+            <img src={user.image} class="userImage" />
+            <div class="userName">{user.display_name}</div>
           </div>
         ))}
       </div>
