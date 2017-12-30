@@ -146,7 +146,7 @@
         authentication_complete();
       };
 
-      lightdm.start_authentication = function (username) {
+      lightdm.authenticate = function (username) {
         _lightdm_mock_check_argument_length(arguments, 1);
 
         if (lightdm._username) {
@@ -189,17 +189,14 @@
         document.location.reload(true);
       };
 
-      lightdm.login = function (user, session) {
+      lightdm.start_session_sync = function (session) {
         _lightdm_mock_check_argument_length(arguments, 2);
 
         if (!lightdm.is_authenticated) {
           throw "The system is not authenticated";
         }
-        if (user !== lightdm.authentication_user) {
-          throw user + " is not authenticated";
-        }
 
-        alert("logged '" + user + "' in to '" + session + "' successfully!");
+        alert("logged in to '" + session + "' successfully!");
         document.location.reload(true);
       };
 
