@@ -6,7 +6,11 @@ class UserList extends Component {
     return (
       <div className="UserList">
         {this.props.users.map((user, i) => (
-          <div className="user" key={i}>
+          <div
+            className="user"
+            key={i}
+            onClick={() => this.props.startLogin(user.name)}
+          >
             <img src={user.image} class="userImage" />
             <div class="userName">{user.display_name}</div>
           </div>

@@ -37,8 +37,7 @@ class App extends Component {
   }
 
   startAuth(username) {
-    this.setState({ stage: "authUser" });
-    lightdm.start_authentication(username);
+    this.setState({ stage: "authUser", username: username });
   }
 
   render() {
@@ -50,6 +49,7 @@ class App extends Component {
             startLogin={this.startAuth.bind(this)}
           />
         )}
+        {this.state.stage == "authUser" && <div />}
         {this.state.notification && (
           <div class="notification">{this.state.notification}</div>
         )}
