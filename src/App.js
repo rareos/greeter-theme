@@ -5,7 +5,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      stage: "selectUser"
+      stage: "selectUser",
+      password: "",
+      invalidPasswordError: false,
+      session: lightdm.sessions[0].key
     };
   }
 
@@ -27,7 +30,7 @@ class App extends Component {
       if (window.lightdm.is_authenticated) {
         window.lightdm.start_session_sync(this.state.session);
       } else {
-        // Password was invalid. Do something about it
+        this.setState({ invalidPasswordError: true, password: "" });
       }
     };
 
@@ -49,11 +52,77 @@ class App extends Component {
             startLogin={this.startAuth.bind(this)}
           />
         )}
-        {this.state.stage == "authUser" && <div />}
-        {this.state.notification && (
-          <div class="notification">{this.state.notification}</div>
+        {this.state.stage == "authUser" && (
+          <div className="LoginBox">
+            <img
+              src={
+                lightdm.users.filter(
+                  user => user.name === this.state.username
+                )[0].image
+              }
+              className="userImage"
+            />
+            <div className="userName">
+              {
+                lightdm.users.filter(
+                  user => user.name === this.state.username
+                )[0].display_name
+              }
+            </div>
+            <form
+              onSubmit={e => {
+                e.preventDefault();
+                lightdm.authenticate(this.state.username);
+              }}
+            >
+              <input
+                type="password"
+                placeholder="Password"
+                className="PasswordInput"
+                value={this.state.password}
+                onChange={val => this.setState({ password: val.target.value })}
+                style={
+                  this.state.invalidPasswordError
+                    ? { border: "2px solid #F44336" }
+                    : {}
+                }
+              />
+              <button className="SubmitButton">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink"
+                  version="1.1"
+                  viewBox="0 0 26 26"
+                  enableBackground="new 0 0 26 26"
+                  width="18px"
+                  height="18px"
+                >
+                  <path
+                    d="M16.7,22.7l9-9c0.2-0.2,0.3-0.5,0.3-0.7c0-0.3-0.1-0.5-0.3-0.7l-9-9C16.5,3.1,16.3,3,16,3s-0.5,0.1-0.7,0.3l-1.4,1.4  c-0.4,0.4-0.4,1,0,1.4l4,4c0.3,0.3,0.1,0.9-0.4,0.9H1c-0.6,0-1,0.4-1,1v2c0,0.6,0.4,1,1,1h16.6c0.4,0,0.7,0.5,0.4,0.9l-4,4  c-0.4,0.4-0.4,1,0,1.4l1.4,1.4c0.2,0.2,0.4,0.3,0.7,0.3C16.3,23,16.5,22.9,16.7,22.7z"
+                    fill="#d9d9d9"
+                  />
+                </svg>
+              </button>
+            </form>
+            <div
+              className="BackButton"
+              onClick={() =>
+                this.setState({
+                  stage: "selectUser",
+                  username: null,
+                  password: "",
+                  invalidPasswordError: false
+                })
+              }
+            >
+              Switch User
+            </div>
+          </div>
         )}
-        <div class="BottomButtons">
+        {this.state.notification && (
+          <div className="notification">{this.state.notification}</div>
+        )}
+        <div className="BottomButtons">
           {lightdm.can_suspend && (
             <div className="button" onClick={lightdm.suspend}>
               Suspend

@@ -125,7 +125,7 @@
         lightdm._timed_login_cancelled = true;
       };
 
-      lightdm.provide_secret = function (secret) {
+      lightdm.respond = function (secret) {
         if (typeof lightdm._username == 'undefined' || !lightdm._username) {
           throw "must call start_authentication first";
         }
@@ -156,8 +156,8 @@
         if (!user) {
           show_error(username + " is an invalid user");
         }
-        show_prompt("Password: ");
         lightdm._username = username;
+        show_prompt("Password: ");
       };
 
       lightdm.cancel_authentication = function () {
@@ -190,7 +190,7 @@
       };
 
       lightdm.start_session_sync = function (session) {
-        _lightdm_mock_check_argument_length(arguments, 2);
+        _lightdm_mock_check_argument_length(arguments, 1);
 
         if (!lightdm.is_authenticated) {
           throw "The system is not authenticated";

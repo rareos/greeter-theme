@@ -1,5 +1,7 @@
 html,
-body {
+body,
+#root,
+.GreeterWindow {
   height: 100vh;
 }
 body {
@@ -27,7 +29,7 @@ body {
   padding: 40px 25px;
   background: rgba(0, 0, 0, 0.6);
   margin: 15px;
-  cursor: pointer;
+  cursor: default;
   transition: background 0.2s;
 }
 
@@ -48,6 +50,67 @@ body {
   color: white;
 }
 
+.LoginBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.LoginBox .userImage {
+  width: 180px;
+  height: 180px;
+  margin-bottom: 10px;
+}
+
+.LoginBox .userName {
+  font-size: 32px;
+  font-family: "Source Sans Pro SemiBold";
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+}
+
+.PasswordInput {
+  margin-right: 5px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 5px 10px;
+  border: 2px solid rgba(0, 0, 0, 0.7);
+  font-family: "Source Sans Pro SemiBold";
+  color: #d8d8d8;
+  font-size: 18px;
+  transition: 0.13s border;
+  display: inline-flex;
+  align-items: center;
+  line-height: 24px;
+}
+
+.PasswordInput::-webkit-input-placeholder {
+  color: #a7a7a7;
+}
+
+.SubmitButton {
+  font-size: 18px;
+  height: 38px;
+  width: 38px;
+  font-family: "Source Sans Pro SemiBold";
+  background: #03609e;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.PasswordInput:focus {
+  outline: 0;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
 .BottomButtons {
   position: absolute;
   bottom: 0;
@@ -61,11 +124,33 @@ body {
   font-family: "Source Sans Pro SemiBold";
   font-size: 14px;
   padding: 20px 30px;
-  cursor: pointer;
+  cursor: default;
   display: inline-block;
   transition: background 0.2s;
 }
 
 .BottomButtons .button:hover {
   background: rgba(255, 255, 255, 0.13);
+}
+
+.notification {
+  position: absolute;
+  bottom: 40px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  font-family: "Source Sans Pro SemiBold";
+  padding: 20px;
+}
+
+.BackButton {
+  font-family: "Source Sans Pro SemiBold";
+  margin-top: 20px;
+  color: #d8d8d8;
+  transition: color 0.07s;
+  cursor: default;
+  padding: 10px;
+}
+
+.BackButton:hover {
+  color: white;
 }
