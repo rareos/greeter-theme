@@ -9,7 +9,7 @@ class App extends Component {
       username: lightdm.users.length > 1 ? null : lightdm.users[0].name,
       password: "",
       invalidPasswordError: false,
-      session: lightdm.sessions[0].key
+      session: lightdm.default_session.key
     };
   }
 
