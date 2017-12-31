@@ -5,7 +5,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      stage: "selectUser",
+      stage: lightdm.users.length > 1 ? "selectUser" : "authUser",
+      username: lightdm.users.length > 1 ? null : lightdm.users[0].name,
       password: "",
       invalidPasswordError: false,
       session: lightdm.sessions[0].key
@@ -110,19 +111,21 @@ class App extends Component {
                 </svg>
               </button>
             </form>
-            <div
-              className="BackButton"
-              onClick={() =>
-                this.setState({
-                  stage: "selectUser",
-                  username: null,
-                  password: "",
-                  invalidPasswordError: false
-                })
-              }
-            >
-              Switch User
-            </div>
+            {lightdm.users.length > 1 && (
+              <div
+                className="BackButton"
+                onClick={() =>
+                  this.setState({
+                    stage: "selectUser",
+                    username: null,
+                    password: "",
+                    invalidPasswordError: false
+                  })
+                }
+              >
+                Switch User
+              </div>
+            )}
           </div>
         )}
         {this.state.notification && (
