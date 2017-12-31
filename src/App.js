@@ -79,6 +79,12 @@ class App extends Component {
                 type="password"
                 placeholder="Password"
                 className="PasswordInput"
+                ref={input => {
+                  this.passwordInput = input;
+                  if (input) {
+                    input.focus();
+                  }
+                }}
                 value={this.state.password}
                 onChange={val => this.setState({ password: val.target.value })}
                 style={
