@@ -8,8 +8,7 @@ class App extends Component {
       stage: lightdm.users.length > 1 ? "selectUser" : "authUser",
       username: lightdm.users.length > 1 ? null : lightdm.users[0].name,
       password: "",
-      invalidPasswordError: false,
-      session: lightdm.default_session.key
+      invalidPasswordError: false
     };
   }
 
@@ -29,7 +28,7 @@ class App extends Component {
 
     window.authentication_complete = () => {
       if (window.lightdm.is_authenticated) {
-        window.lightdm.start_session(this.state.session);
+        window.lightdm.start_session(null);
       } else {
         this.setState({ invalidPasswordError: true, password: "" });
       }
