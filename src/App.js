@@ -8,7 +8,8 @@ class App extends Component {
       stage: lightdm.users.length > 1 ? "selectUser" : "authUser",
       username: lightdm.users.length > 1 ? null : lightdm.users[0].name,
       password: "",
-      invalidPasswordError: false
+      invalidPasswordError: false,
+      session: lightdm.sessions[0].key
     };
   }
 
@@ -28,7 +29,7 @@ class App extends Component {
 
     window.authentication_complete = () => {
       if (window.lightdm.is_authenticated) {
-        window.lightdm.start_session(null);
+        window.lightdm.start_session_sync(this.state.session);
       } else {
         this.setState({ invalidPasswordError: true, password: "" });
       }
@@ -42,6 +43,7 @@ class App extends Component {
   startAuth(username) {
     this.setState({ stage: "authUser", username: username });
   }
+
   render() {
     return (
       <div className="GreeterWindow">
@@ -53,18 +55,6 @@ class App extends Component {
         )}
         {this.state.stage == "authUser" && (
           <div className="LoginBox">
-            <img
-              src={
-                lightdm.users.filter(
-                  user => user.name === this.state.username
-                )[0].image
-                  ? lightdm.users.filter(
-                      user => user.name === this.state.username
-                    )[0].image
-                  : "../build/background.png"
-              }
-              className="userImage"
-            />
             <div className="userName">
               {
                 lightdm.users.filter(

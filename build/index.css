@@ -24,7 +24,7 @@ body {
 }
 
 .UserList .user {
-  height: 170px;
+  height: 20px;
   width: 150px;
   padding: 40px 25px;
   background: rgba(0, 0, 0, 0.6);
@@ -104,6 +104,8 @@ form {
   align-items: center;
   justify-content: center;
   border: none;
+  position: relative;
+  bottom: -2px;
 }
 
 .PasswordInput:focus {
