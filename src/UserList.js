@@ -10,6 +10,10 @@ class UserList extends Component {
             key={i}
             onClick={() => this.props.startLogin(user.name)}
           >
+            <img	
+              src={user.image ? user.image : "../build/background.png"}	
+              className="userImage"	
+            />
             <div className="userName">{user.display_name}</div>
           </div>
         ))}

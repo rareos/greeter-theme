@@ -55,6 +55,18 @@ class App extends Component {
         )}
         {this.state.stage == "authUser" && (
           <div className="LoginBox">
+            <img	
+              src={	
+                lightdm.users.filter(	
+                  user => user.name === this.state.username	
+                )[0].image	
+                  ? lightdm.users.filter(	
+                      user => user.name === this.state.username	
+                    )[0].image	
+                  : "../build/background.png"	
+              }	
+              className="userImage"	
+            />
             <div className="userName">
               {
                 lightdm.users.filter(
@@ -123,26 +135,15 @@ class App extends Component {
         {this.state.notification && (
           <div className="notification">{this.state.notification}</div>
         )}
-        <div className="BottomButtons">
-          {lightdm.can_suspend && (
-            <div className="button" onClick={lightdm.suspend}>
-              Suspend
-            </div>
-          )}
-          {lightdm.can_hibernate && (
-            <div className="button" onClick={lightdm.hibernate}>
-              Hibernate
-            </div>
+        <div className="BottomPane">
+		  <p className="osVersion">
+		    rareOS Summit
+		  </p>
+          {lightdm.can_shutdown && (
+            <div className="shutdownButton" onClick={lightdm.shutdown}/>
           )}
           {lightdm.can_restart && (
-            <div className="button" onClick={lightdm.restart}>
-              Restart
-            </div>
-          )}
-          {lightdm.can_shutdown && (
-            <div className="button" onClick={lightdm.shutdown}>
-              Shutdown
-            </div>
+            <div className="restartButton" onClick={lightdm.restart}/>
           )}
         </div>
       </div>

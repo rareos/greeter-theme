@@ -47,53 +47,20 @@ if (!("lightdm" in window)) {
 
   lightdm.users = [
     {
-      name: "clarkk",
-      real_name: "Superman",
-      display_name: "Clark Kent",
+      name: "masonb",
+      real_name: "Mason",
+      display_name: "Mason Back",
       image:
-        "https://lh3.googleusercontent.com/B4Rmc8NPG7fHIGmN65214ppzNGHNa_wuLSSJ6Dz85KJoZ0zlBFnpH16pOJBHpwA0fCs=w300",
+        "https://avatars3.githubusercontent.com/u/12467547?s=460&v=4",
       language: "en_US",
       layout: null,
       session: null,
       logged_in: false
     },
     {
-      name: "brucew",
-      real_name: "Batman",
-      display_name: "Bruce Wayne",
-      image:
-        "https://lh3.googleusercontent.com/B4Rmc8NPG7fHIGmN65214ppzNGHNa_wuLSSJ6Dz85KJoZ0zlBFnpH16pOJBHpwA0fCs=w300",
-      language: "en_US",
-      layout: null,
-      session: null,
-      logged_in: false
-    },
-    {
-      name: "peterp",
-      real_name: "Spiderman",
-      display_name: "Peter Parker",
-      image:
-        "https://lh3.googleusercontent.com/B4Rmc8NPG7fHIGmN65214ppzNGHNa_wuLSSJ6Dz85KJoZ0zlBFnpH16pOJBHpwA0fCs=w300",
-      language: "en_US",
-      layout: null,
-      session: null,
-      logged_in: true
-    },
-    {
-      name: "example",
-      real_name: "example",
-      display_name: "example",
-      image:
-        "https://lh3.googleusercontent.com/B4Rmc8NPG7fHIGmN65214ppzNGHNa_wuLSSJ6Dz85KJoZ0zlBFnpH16pOJBHpwA0fCs=w300",
-      language: "en_US",
-      layout: null,
-      session: null,
-      logged_in: false
-    },
-    {
-      name: "example2",
-      real_name: "example",
-      display_name: "example",
+      name: "ethank",
+      real_name: "Ethan",
+      display_name: "Ethan Klein",
       image:
         "https://lh3.googleusercontent.com/B4Rmc8NPG7fHIGmN65214ppzNGHNa_wuLSSJ6Dz85KJoZ0zlBFnpH16pOJBHpwA0fCs=w300",
       language: "en_US",

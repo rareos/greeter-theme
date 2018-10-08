@@ -24,28 +24,28 @@ body {
 }
 
 .UserList .user {
-  height: 20px;
+  height: 170px;
   width: 150px;
   padding: 40px 25px;
-  background: rgba(0, 0, 0, 0.6);
   margin: 15px;
   cursor: default;
-  transition: background 0.2s;
-}
-
-.UserList .user:hover {
-  background: rgba(0, 0, 0, 0.34);
 }
 
 .UserList .user .userImage {
   width: 150px;
   height: 150px;
   margin-bottom: 10px;
+  border-radius: 50%;
+  transition: border-radius 0.2s;
+}
+
+.UserList .user:hover .userImage {
+	border-radius: 25px;
 }
 
 .UserList .userName {
   font-size: 18px;
-  font-family: "Source Sans Pro SemiBold";
+  font-family: "Source Sans Pro Light";
   text-align: center;
   color: white;
 }
@@ -62,11 +62,12 @@ body {
   width: 180px;
   height: 180px;
   margin-bottom: 10px;
+  border-radius: 25px;
 }
 
 .LoginBox .userName {
   font-size: 32px;
-  font-family: "Source Sans Pro SemiBold";
+  font-family: "Source Sans Pro Light";
   color: white;
   text-align: center;
   margin-bottom: 20px;
@@ -78,61 +79,89 @@ form {
 
 .PasswordInput {
   margin-right: 5px;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.4);
   padding: 5px 10px;
-  border: 2px solid rgba(0, 0, 0, 0.7);
-  font-family: "Source Sans Pro SemiBold";
-  color: #d8d8d8;
+  border: none;
+  font-family: "Source Sans Pro Light";
+  color: black;
   font-size: 18px;
-  transition: 0.13s border;
   display: inline-flex;
   align-items: center;
   line-height: 24px;
+  border-radius: 15px 0px 0px 15px;
 }
 
 .PasswordInput::-webkit-input-placeholder {
-  color: #a7a7a7;
+  color: black;
 }
 
 .SubmitButton {
   font-size: 18px;
   height: 38px;
   width: 38px;
-  font-family: "Source Sans Pro SemiBold";
-  background: #03609e;
+  font-family: "Source Sans Pro Light";
+  color: white;
+  background: #01579B;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  border-radius: 0px 15px 15px 0px;
   border: none;
-  position: relative;
-  bottom: -2px;
 }
 
 .PasswordInput:focus {
   outline: 0;
-  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
-.BottomButtons {
+.BottomPane {
   position: absolute;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0);
   width: 100%;
 }
 
-.BottomButtons .button {
-  text-transform: uppercase;
-  color: white;
-  font-family: "Source Sans Pro SemiBold";
-  font-size: 14px;
-  padding: 20px 30px;
-  cursor: default;
-  display: inline-block;
-  transition: background 0.2s;
+.BottomPane .osVersion {
+	float: left;
+	margin-left: 50px;
+	font-size: 20px;
+	font-family: "Source Sans Pro";
+	color: rgba(255, 255, 255, 0.5);
 }
 
-.BottomButtons .button:hover {
-  background: rgba(255, 255, 255, 0.13);
+.BottomPane .restartButton {
+  float: right;
+  background: url("restart.svg"), rgba(66, 66, 66, 0.5);
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0px 25px 50px 0px;
+  transition: border-radius 0.2s;
+}
+
+.BottomPane .restartButton:hover {
+  border-radius: 15px;
+}
+
+.BottomPane .shutdownButton {
+  float: right;
+  background: url("power.svg"), rgba(66, 66, 66, 0.5);
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0px 50px 50px 0px;
+  transition: border-radius 0.2s;
+}
+
+.BottomPane .shutdownButton:hover {
+  border-radius: 15px;
 }
 
 .notification {
@@ -140,12 +169,12 @@ form {
   bottom: 40px;
   right: 10px;
   background: rgba(0, 0, 0, 0.6);
-  font-family: "Source Sans Pro SemiBold";
+  font-family: "Source Sans Pro Light";
   padding: 20px;
 }
 
 .BackButton {
-  font-family: "Source Sans Pro SemiBold";
+  font-family: "Source Sans Pro Light";
   margin-top: 20px;
   color: #d8d8d8;
   transition: color 0.07s;
